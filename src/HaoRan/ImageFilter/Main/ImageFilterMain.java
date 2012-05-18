@@ -138,8 +138,8 @@ public class ImageFilterMain extends Activity {
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new FocusFilter()));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new CleanGlassFilter()));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FF00)));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x0000FF)));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0xFFFF00)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0xFF0000)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FFFF)));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new LomoFilter()));
 		
 			
