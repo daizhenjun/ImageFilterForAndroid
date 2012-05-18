@@ -58,9 +58,9 @@ public class BrightContrastFilter implements IImageFilter {
                  	int gi = g + bfi;
                  	int bi = b + bfi;
                     // Clamp to byte boundaries
-                    r = (byte)(ri > 255 ? 255 : (ri < 0 ? 0 : ri));
-                    g = (byte)(gi > 255 ? 255 : (gi < 0 ? 0 : gi));
-                    b = (byte)(bi > 255 ? 255 : (bi < 0 ? 0 : bi));
+                    r = ri > 255 ? 255 : (ri < 0 ? 0 : ri);
+                    g = gi > 255 ? 255 : (gi < 0 ? 0 : gi);
+                    b = bi > 255 ? 255 : (bi < 0 ? 0 : bi);
                  }
                  // Modifiy contrast (multiplication)
                  if (cfi != 32769){
@@ -80,9 +80,9 @@ public class BrightContrastFilter implements IImageFilter {
                     bi = bi + 128;
 
                     // Clamp to byte boundaries
-                    r = (byte)(ri > 255 ? 255 : (ri < 0 ? 0 : ri));
-                    g = (byte)(gi > 255 ? 255 : (gi < 0 ? 0 : gi));
-                    b = (byte)(bi > 255 ? 255 : (bi < 0 ? 0 : bi));
+                    r = ri > 255 ? 255 : (ri < 0 ? 0 : ri);
+                    g = gi > 255 ? 255 : (gi < 0 ? 0 : gi);
+                    b = bi > 255 ? 255 : (bi < 0 ? 0 : bi);
                  }  
                  imageIn.setPixelColor(x, y, r, g, b);
              }

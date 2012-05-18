@@ -56,10 +56,10 @@ public class LomoFilter implements IImageFilter{
      public Image process(Image imageIn)
      {
          Image tempImg = contrastFx.process(imageIn);
-         tempImg = this.noiseFx.process(tempImg);
-         imageIn = this.gradientMapFx.process(tempImg);
-         imageIn = this.blender.Blend(imageIn, tempImg);
-         imageIn = this.vignetteFx.process(imageIn);
+         tempImg = noiseFx.process(tempImg);
+         imageIn = gradientMapFx.process(tempImg);
+         imageIn = blender.Blend(imageIn, tempImg);
+         imageIn = vignetteFx.process(imageIn);
          return imageIn;
      }
 }

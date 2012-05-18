@@ -58,9 +58,9 @@ public class GradientFilter  implements IImageFilter{
         if ((this.palette == null) || (dist != this.palette.Length)) {
             this.palette = this.Gradient.CreatePalette(dist);
         }
-        byte[] red = this.palette.Red;
-        byte[] green = this.palette.Green;
-        byte[] blue = this.palette.Blue;
+        int[] red = this.palette.Red;
+        int[] green = this.palette.Green;
+        int[] blue = this.palette.Blue;
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++){
             	radio = (cos * j) + (sin * i);

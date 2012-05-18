@@ -46,41 +46,41 @@ public class Gradient {
 	        	return null;
 	        }
 
-	        Palette palette = new Palette(length);
-         byte[] red = palette.Red;
-         byte[] green = palette.Green;
-         byte[] blue = palette.Blue;
-         int num = length / (colors.size() - 1);
-         float num1 = 1f / ((float)num);
-         int index = 0;
-         int rgb = colors.get(0);
-         int colorR = (rgb & 0x00FF0000) >> 16;
-         int colorG = (rgb & 0x0000FF00) >> 8;
-         int colorB =  rgb & 0x000000FF;
-         for (int i = 1; i < colors.size(); i++){
-             int r = (colors.get(i) & 0x00FF0000) >> 16;
-             int g = (colors.get(i) & 0x0000FF00) >> 8;
-             int b =  colors.get(i) & 0x000000FF;
-             for (int j = 0; j < num; j++) {
-                 float num2 = j * num1;
-                 int rr = colorR + ((int)((r - colorR) * num2));
-                 int gg = colorG + ((int)((g - colorG) * num2));
-                 int bb = colorB + ((int)((b - colorB) * num2)); 
-                 red[index]  = (byte)(rr > 0xff ? 0xff : ((rr < 0) ? 0 : rr));
-                 green[index]= (byte)(gg > 0xff ? 0xff : ((gg < 0) ? 0 : gg));
-                 blue[index] = (byte)(bb > 0xff ? 0xff : ((bb < 0) ? 0 : bb));
-                 index++;
-             }
-             colorR = r;
-             colorG = g;
-             colorB = b;
-         }
-         if (index < length) {
-             red[index] = red[index - 1];
-             green[index] = green[index - 1];
-             blue[index] = blue[index - 1];
-         }
-         return palette;
+	         Palette palette = new Palette(length);
+	         int[] red = palette.Red;
+	         int[] green = palette.Green;
+	         int[] blue = palette.Blue;
+	         int num = length / (colors.size() - 1);
+	         float num1 = 1f / ((float)num);
+	         int index = 0;
+	         int rgb = colors.get(0);
+	         int colorR = (rgb & 0x00FF0000) >> 16;
+	         int colorG = (rgb & 0x0000FF00) >> 8;
+	         int colorB =  rgb & 0x000000FF;
+	         for (int i = 1; i < colors.size(); i++){
+	             int r = (colors.get(i) & 0x00FF0000) >> 16;
+	             int g = (colors.get(i) & 0x0000FF00) >> 8;
+	             int b =  colors.get(i) & 0x000000FF;
+	             for (int j = 0; j < num; j++) {
+	                 float num2 = j * num1;
+	                 int rr = colorR + ((int)((r - colorR) * num2));
+	                 int gg = colorG + ((int)((g - colorG) * num2));
+	                 int bb = colorB + ((int)((b - colorB) * num2)); 
+	                 red[index]  = (rr > 0xff ? 0xff : ((rr < 0) ? 0 : rr));
+	                 green[index]= (gg > 0xff ? 0xff : ((gg < 0) ? 0 : gg));
+	                 blue[index] = (bb > 0xff ? 0xff : ((bb < 0) ? 0 : bb));
+	                 index++;
+	             }
+	             colorR = r;
+	             colorG = g;
+	             colorB = b;
+	         }
+	         if (index < length) {
+	             red[index] = red[index - 1];
+	             green[index] = green[index - 1];
+	             blue[index] = blue[index - 1];
+	         }
+	         return palette;
 	    }
 
 	    public Palette CreatePalette(int length)
@@ -168,7 +168,7 @@ public class Gradient {
         {
             List<Integer> colors = new ArrayList<Integer>();
             colors.add(Color.rgb(0xFF, 0xBF, 0x00));//DeepSkyBlue  , reference http://www.wescn.com/tool/color_3.html
-            colors.add(Color.rgb(0xDC, 0xDC, 0xDC));//Gainsboro
+            colors.add(Color.WHITE);
             colors.add(Color.rgb(0xFF, 0xBF, 0x00));//DeepSkyBlue
             return new Gradient(colors);
         }

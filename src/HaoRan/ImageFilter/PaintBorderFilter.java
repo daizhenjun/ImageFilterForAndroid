@@ -83,9 +83,9 @@ public class PaintBorderFilter implements IImageFilter{
                 r = (int)((((float)distSq / diff) * R));
                 g = (int)((((float)distSq / diff) * G));
                 b = (int)((((float)distSq / diff) * B));
-                r = (byte)(r > R ? R : (r < 0 ? 0 : r));
-                g = (byte)(g > G ? G : (g < 0 ? 0 : g));
-                b = (byte)(b > B ? B : (b < 0 ? 0 : b));
+                r = (r > R ? R : (r < 0 ? 0 : r));
+                g = (g > G ? G : (g < 0 ? 0 : g));
+                b = (b > B ? B : (b < 0 ? 0 : b));
                 imageIn.setPixelColor(x, y, r, g, b);
             }
         }

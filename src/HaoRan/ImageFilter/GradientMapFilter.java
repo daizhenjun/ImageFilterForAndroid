@@ -42,9 +42,9 @@ public class GradientMapFilter  implements IImageFilter{
     public Image process(Image imageIn)
     {
     	Palette palette = this.Map.CreatePalette(0x100);
-	    byte[] red = palette.Red;
-	    byte[] green = palette.Green;
-	    byte[] blue = palette.Blue;
+	    int[] red = palette.Red;
+	    int[] green = palette.Green;
+	    int[] blue = palette.Blue;
 	    Image bitmap = imageIn.clone();
 	    bitmap.clearImage(Color.WHITE);
 	    int bfactor = (int) (this.BrightnessFactor * 255f);

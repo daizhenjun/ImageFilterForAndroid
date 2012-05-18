@@ -64,9 +64,9 @@ public class FeatherFilter  implements IImageFilter{
                   r = (int)(r + (v));
                   g = (int)(g + (v));
                   b = (int)(b + (v));
-                  r = (byte)(r > 255 ? 255 : (r < 0 ? 0 : r));
-                  g = (byte)(g > 255 ? 255 : (g < 0 ? 0 : g));
-                  b = (byte)(b > 255 ? 255 : (b < 0 ? 0 : b));
+                  r = (r > 255 ? 255 : (r < 0 ? 0 : r));
+                  g = (g > 255 ? 255 : (g < 0 ? 0 : g));
+                  b = (b > 255 ? 255 : (b < 0 ? 0 : b));
                   imageIn.setPixelColor(x,y,r,g,b);
               }
          } 

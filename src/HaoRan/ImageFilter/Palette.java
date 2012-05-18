@@ -20,17 +20,17 @@ package HaoRan.ImageFilter;
 
 public class Palette
 {
-	public byte[] Blue;
-    public byte[] Green;
+	public int[] Blue;
+    public int[] Green;
     public int Length;
-    public byte[] Red;
+    public int[] Red;
     
     public Palette(int length)
     {
         this.Length = length;
-        this.Red = new byte[length];
-        this.Green = new byte[length];
-        this.Blue = new byte[length];
+        this.Red = new int[length];
+        this.Green = new int[length];
+        this.Blue = new int[length];
     }
 }
 
