@@ -26,7 +26,7 @@ import java.lang.reflect.Array;
  *
  */
 public class GaussianBlurFilter  implements IImageFilter{
-	private static int Padding = 3;
+	protected static int Padding = 3;
 
     /// <summary>
     /// The bluriness factor. 

@@ -130,9 +130,56 @@ public class Gradient {
 	    
 	    public static Gradient Inverse()
 	    {
-         List<Integer> colors = new ArrayList<Integer>();
-         colors.add(Color.WHITE);
-         colors.add(Color.BLACK);
-         return new Gradient(colors);
+	         List<Integer> colors = new ArrayList<Integer>();
+	         colors.add(Color.WHITE);
+	         colors.add(Color.BLACK);
+	         return new Gradient(colors);
 	    }
+	    
+	    public static Gradient Fade()
+        {
+            List<Integer> colors = new ArrayList<Integer>();
+            colors.add(Color.BLACK);
+            colors.add(Color.rgb(0xEE, 0xE8, 0xCD));//Cornsilk2  , reference http://www.wescn.com/tool/color_3.html
+            colors.add(Color.BLACK);
+            return new Gradient(colors);
+        }
+
+        public static Gradient Scene()
+        {
+            List<Integer> colors = new ArrayList<Integer>();
+            colors.add(Color.rgb(0xFF, 0xD7, 0x00));//Gold  , reference http://www.wescn.com/tool/color_3.html
+            colors.add(Color.BLACK);
+            colors.add(Color.rgb(0xFF, 0xD7, 0x00));//Gold
+            return new Gradient(colors);
+        }
+
+        public static Gradient Scene1()
+        {
+            List<Integer> colors = new ArrayList<Integer>();
+            colors.add(Color.rgb(0x64, 0x95, 0xED));//CornflowerBlue  , reference http://www.wescn.com/tool/color_3.html
+            colors.add(Color.WHITE);
+            colors.add(Color.rgb(0x64, 0x95, 0xED));//CornflowerBlue
+            return new Gradient(colors);
+        }
+
+       
+        public static Gradient Scene2()
+        {
+            List<Integer> colors = new ArrayList<Integer>();
+            colors.add(Color.rgb(0x00, 0xBF, 0xFF));//DeepSkyBlue  , reference http://www.wescn.com/tool/color_3.html
+            colors.add(Color.rgb(0xDC, 0xDC, 0xDC));//Gainsboro
+            colors.add(Color.rgb(0x00, 0xBF, 0xFF));//DeepSkyBlue
+            return new Gradient(colors);
+        }
+
+        public static Gradient Scene3()
+        {
+            List<Integer> colors = new ArrayList<Integer>();
+            colors.add(Color.rgb(0xff, 0xa5, 0x00));// , reference http://www.wescn.com/tool/color_3.html
+            colors.add(Color.WHITE);
+            colors.add(Color.rgb(0xff, 0xa5, 0x00));//
+            return new Gradient(colors);
+        }
+
 }

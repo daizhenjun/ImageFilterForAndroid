@@ -128,88 +128,63 @@ public class ImageFilterMain extends Activity {
 
 		public ImageFilterAdapter(Context c) {
 			mContext = c;
+			//v0.2
 			// 加载滤镜列表
-			filterArray.add(new FilterInfo(R.drawable.invert_filter,
-					new InvertFilter()));
-			filterArray.add(new FilterInfo(R.drawable.blackwhite_filter,
-					new BlackWhiteFilter()));
-			filterArray.add(new FilterInfo(R.drawable.edge_filter,
-					new EdgeFilter()));
-			filterArray.add(new FilterInfo(R.drawable.pixelate_filter,
-					new PixelateFilter()));
-			filterArray.add(new FilterInfo(R.drawable.neon_filter,
-					new NeonFilter()));
-			filterArray.add(new FilterInfo(R.drawable.bigbrother_filter,
-					new BigBrotherFilter()));
-			filterArray.add(new FilterInfo(R.drawable.monitor_filter,
-					new MonitorFilter()));
-			filterArray.add(new FilterInfo(R.drawable.relief_filter,
-					new ReliefFilter()));
-			filterArray.add(new FilterInfo(R.drawable.brightcontrast_filter,
-					new BrightContrastFilter()));
-			filterArray.add(new FilterInfo(R.drawable.saturationmodity_filter,
-					new SaturationModifyFilter()));
-			filterArray.add(new FilterInfo(R.drawable.threshold_filter,
-					new ThresholdFilter()));
-			filterArray.add(new FilterInfo(R.drawable.noisefilter,
-					new NoiseFilter()));
-			filterArray.add(new FilterInfo(R.drawable.banner_filter1,
-					new BannerFilter(10, true)));
-			filterArray.add(new FilterInfo(R.drawable.banner_filter2,
-					new BannerFilter(10, false)));
-			filterArray.add(new FilterInfo(R.drawable.rectmatrix_filter,
-					new RectMatrixFilter()));
-			filterArray.add(new FilterInfo(R.drawable.blockprint_filter,
-					new BlockPrintFilter()));
-			filterArray.add(new FilterInfo(R.drawable.brick_filter,
-					new BrickFilter()));
-			filterArray.add(new FilterInfo(R.drawable.gaussianblur_filter,
-					new GaussianBlurFilter()));
-			filterArray.add(new FilterInfo(R.drawable.light_filter,
-					new LightFilter()));
-			filterArray.add(new FilterInfo(R.drawable.mosaic_filter,
-					new MistFilter()));
-			filterArray.add(new FilterInfo(R.drawable.mosaic_filter,
-					new MosaicFilter()));
-			filterArray.add(new FilterInfo(R.drawable.oilpaint_filter,
-					new OilPaintFilter()));
-			filterArray.add(new FilterInfo(R.drawable.radialdistortion_filter,
-					new RadialDistortionFilter()));
-			filterArray.add(new FilterInfo(R.drawable.reflection1_filter,
-					new ReflectionFilter(true)));
-			filterArray.add(new FilterInfo(R.drawable.reflection2_filter,
-					new ReflectionFilter(false)));
-			filterArray.add(new FilterInfo(R.drawable.saturationmodify_filter,
-					new SaturationModifyFilter()));
-			filterArray.add(new FilterInfo(R.drawable.smashcolor_filter,
-					new SmashColorFilter()));
-			filterArray.add(new FilterInfo(R.drawable.tint_filter,
-					new TintFilter()));
-			filterArray.add(new FilterInfo(R.drawable.vignette_filter,
-					new VignetteFilter()));
-			filterArray.add(new FilterInfo(R.drawable.autoadjust_filter,
-					new AutoAdjustFilter()));
-			filterArray.add(new FilterInfo(R.drawable.colorquantize_filter,
-					new ColorQuantizeFilter()));
-			filterArray.add(new FilterInfo(R.drawable.waterwave_filter,
-					new WaterWaveFilter()));
-			filterArray.add(new FilterInfo(R.drawable.vintage_filter,
-					new VintageFilter()));
-			filterArray.add(new FilterInfo(R.drawable.oldphoto_filter,
-					new OldPhotoFilter()));
-			filterArray.add(new FilterInfo(R.drawable.sepia_filter,
-					new SepiaFilter()));
-			filterArray.add(new FilterInfo(R.drawable.rainbow_filter,
-					new RainBowFilter()));
-			filterArray.add(new FilterInfo(R.drawable.feather_filter,
-					new FeatherFilter()));
-			filterArray.add(new FilterInfo(R.drawable.xradiation_filter,
-					new XRadiationFilter()));
-			filterArray.add(new FilterInfo(R.drawable.nightvision_filter,
-					new NightVisionFilter()));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ComicFilter()));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SceneFilter(5f, Gradient.Scene())));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SceneFilter(5f, Gradient.Scene1())));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SceneFilter(5f, Gradient.Scene2())));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new FilmFilter(80f)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new FocusFilter()));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new CleanGlassFilter()));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FF00)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x0000FF)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0xFFFF00)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new LomoFilter()));
+		
+			
+			//v0.1
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new InvertFilter()));
+			filterArray.add(new FilterInfo(R.drawable.blackwhite_filter, new BlackWhiteFilter()));
+			filterArray.add(new FilterInfo(R.drawable.edge_filter, new EdgeFilter()));
+			filterArray.add(new FilterInfo(R.drawable.pixelate_filter, new PixelateFilter()));
+			filterArray.add(new FilterInfo(R.drawable.neon_filter, new NeonFilter()));
+			filterArray.add(new FilterInfo(R.drawable.bigbrother_filter, new BigBrotherFilter()));
+			filterArray.add(new FilterInfo(R.drawable.monitor_filter, new MonitorFilter()));
+			filterArray.add(new FilterInfo(R.drawable.relief_filter, new ReliefFilter()));
+			filterArray.add(new FilterInfo(R.drawable.brightcontrast_filter,new BrightContrastFilter()));
+			filterArray.add(new FilterInfo(R.drawable.saturationmodity_filter,	new SaturationModifyFilter()));
+			filterArray.add(new FilterInfo(R.drawable.threshold_filter,	new ThresholdFilter()));
+			filterArray.add(new FilterInfo(R.drawable.noisefilter,	new NoiseFilter()));
+			filterArray.add(new FilterInfo(R.drawable.banner_filter1, new BannerFilter(10, true)));
+			filterArray.add(new FilterInfo(R.drawable.banner_filter2, new BannerFilter(10, false)));
+			filterArray.add(new FilterInfo(R.drawable.rectmatrix_filter, new RectMatrixFilter()));
+			filterArray.add(new FilterInfo(R.drawable.blockprint_filter, new BlockPrintFilter()));
+			filterArray.add(new FilterInfo(R.drawable.brick_filter,	new BrickFilter()));
+			filterArray.add(new FilterInfo(R.drawable.gaussianblur_filter,	new GaussianBlurFilter()));
+			filterArray.add(new FilterInfo(R.drawable.light_filter,	new LightFilter()));
+			filterArray.add(new FilterInfo(R.drawable.mosaic_filter,new MistFilter()));
+			filterArray.add(new FilterInfo(R.drawable.mosaic_filter,new MosaicFilter()));
+			filterArray.add(new FilterInfo(R.drawable.oilpaint_filter,	new OilPaintFilter()));
+			filterArray.add(new FilterInfo(R.drawable.radialdistortion_filter,new RadialDistortionFilter()));
+			filterArray.add(new FilterInfo(R.drawable.reflection1_filter,new ReflectionFilter(true)));
+			filterArray.add(new FilterInfo(R.drawable.reflection2_filter,new ReflectionFilter(false)));
+			filterArray.add(new FilterInfo(R.drawable.saturationmodify_filter,	new SaturationModifyFilter()));
+			filterArray.add(new FilterInfo(R.drawable.smashcolor_filter,new SmashColorFilter()));
+			filterArray.add(new FilterInfo(R.drawable.tint_filter,	new TintFilter()));
+			filterArray.add(new FilterInfo(R.drawable.vignette_filter,	new VignetteFilter()));
+			filterArray.add(new FilterInfo(R.drawable.autoadjust_filter,new AutoAdjustFilter()));
+			filterArray.add(new FilterInfo(R.drawable.colorquantize_filter,	new ColorQuantizeFilter()));
+			filterArray.add(new FilterInfo(R.drawable.waterwave_filter,	new WaterWaveFilter()));
+			filterArray.add(new FilterInfo(R.drawable.vintage_filter,new VintageFilter()));
+			filterArray.add(new FilterInfo(R.drawable.oldphoto_filter,new OldPhotoFilter()));
+			filterArray.add(new FilterInfo(R.drawable.sepia_filter,	new SepiaFilter()));
+			filterArray.add(new FilterInfo(R.drawable.rainbow_filter,new RainBowFilter()));
+			filterArray.add(new FilterInfo(R.drawable.feather_filter,new FeatherFilter()));
+			filterArray.add(new FilterInfo(R.drawable.xradiation_filter,new XRadiationFilter()));
+			filterArray.add(new FilterInfo(R.drawable.nightvision_filter,new NightVisionFilter()));
 
-			filterArray.add(new FilterInfo(R.drawable.saturationmodity_filter,
-					null/* 此处会生成原图效果 */));
+			filterArray.add(new FilterInfo(R.drawable.saturationmodity_filter,null/* 此处会生成原图效果 */));
 		}
 
 		public int getCount() {
