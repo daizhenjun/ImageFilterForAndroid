@@ -149,7 +149,7 @@ public class Gradient {
         {
             List<Integer> colors = new ArrayList<Integer>();
             colors.add(Color.rgb(0x00, 0xD7, 0xFF));//Gold  , reference http://www.wescn.com/tool/color_3.html
-            colors.add(Color.BLACK);
+            colors.add(Color.WHITE);
             colors.add(Color.rgb(0x00, 0xD7, 0xFF));//Gold
             return new Gradient(colors);
         }

@@ -131,15 +131,12 @@ public class ImageFilterMain extends Activity {
 			//v0.2
 			// º”‘ÿ¬Àæµ¡–±Ì
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ComicFilter()));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SceneFilter(5f, Gradient.Scene())));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SceneFilter(5f, Gradient.Scene1())));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SceneFilter(5f, Gradient.Scene2())));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new FilmFilter(80f)));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new FocusFilter()));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new CleanGlassFilter()));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FF00)));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0xFF0000)));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FFFF)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FF0000)));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new LomoFilter()));
 		
 			
