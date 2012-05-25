@@ -139,8 +139,8 @@ public class ImageFilterMain extends Activity {
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new FocusFilter()));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new CleanGlassFilter()));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FF00)));//greengreen
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x0000FF)));//yellow
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0xFFFF00)));//blue
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FFFF)));//yellow
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0xFF0000)));//blue
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new LomoFilter()));
 			
 			//v0.1
