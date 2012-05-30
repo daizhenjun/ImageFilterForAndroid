@@ -62,7 +62,7 @@ public class EdgeFilter implements IImageFilter {
                 grayY = luminance[x-1][y-1] + 2* luminance[x-1][y-1+1] + luminance[x-1][y-1+2] - luminance[x-1+2][y-1] - 2* luminance[x-1+2][y-1+1] - luminance[x-1+2][y-1+2];
 
                 // Magnitudes sum
-                magnitude = 255 - truncate(Math.abs(grayX) + Math.abs(grayY));
+                magnitude = 255 - Image.SAFECOLOR(Math.abs(grayX) + Math.abs(grayY));
                 Paint grayscaleColor = grayMatrix[magnitude];
 
                 // Apply the color into a new image
@@ -74,20 +74,7 @@ public class EdgeFilter implements IImageFilter {
     }
 
 
-    /**
-     * Sets the RGB between 0 and 255
-     *
-     * @param a
-     * @return
-     */
-    private int truncate(int a) {
-        if (a < 0)
-            return 0;
-        else if (a > 255)
-            return 255;
-        else
-            return a;
-    }
+   
 
     /**
      * Apply the luminance

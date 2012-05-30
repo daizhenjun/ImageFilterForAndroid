@@ -25,7 +25,7 @@ package HaoRan.ImageFilter;
  */
 public class RadialDistortionFilter  implements IImageFilter{
 
-	public class Point
+	public static class Point
 	{
 	   public float X;
 	   public float Y;

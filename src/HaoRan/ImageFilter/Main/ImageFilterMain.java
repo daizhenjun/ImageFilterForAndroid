@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import HaoRan.ImageFilter.*;
+import HaoRan.ImageFilter.RadialDistortionFilter.Point;
+import HaoRan.ImageFilter.Distort.*;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.opengl.Visibility;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -128,6 +131,30 @@ public class ImageFilterMain extends Activity {
 
 		public ImageFilterAdapter(Context c) {
 			mContext = c;
+			//v0.3
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ZoomBlurFilter(30)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ThreeDGridFilter(16, 100)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ColorToneFilter(Color.rgb(33, 168, 254), 192)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ColorToneFilter(0x00FF00, 192)));//green
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ColorToneFilter(0xFF0000, 192)));//blue
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ColorToneFilter(0x00FFFF, 192)));//yellow
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SoftGlowFilter(10, 0.1f, 0.1f)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new TileReflectionFilter(20, 8)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new BlindFilter(true, 96, 100, 0xffffff)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new BlindFilter(false, 96, 100, 0x000000)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new RaiseFrameFilter(20)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ShiftFilter(10)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new WaveFilter(25, 10)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new BulgeFilter(-97)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new TwistFilter(27, 106)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new RippleFilter(38, 15, true)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new IllusionFilter(3)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SupernovaFilter(0x00FFFF,20,100)));
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new LensFlareFilter()));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PosterizeFilter(2)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new GammaFilter(50)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SharpFilter()));
+			
 			//v0.2
 			// º”‘ÿ¬Àæµ¡–±Ì
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ComicFilter()));

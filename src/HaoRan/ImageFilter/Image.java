@@ -276,4 +276,14 @@ public class Image {
         this.colorArray = colorArray;
     }
 
+    
+    public static int SAFECOLOR(int a) {
+        if (a < 0)
+            return 0;
+        else if (a > 255)
+            return 255;
+        else
+            return a;
+    }
+
 }
