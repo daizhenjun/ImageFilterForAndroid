@@ -26,11 +26,6 @@ import java.util.Date;
 
 import android.util.Log;
 
-/**
- * 反色效果
- * @author daizhj
- *
- */
 
 public class TileReflectionFilter extends RadialDistortionFilter {
 	

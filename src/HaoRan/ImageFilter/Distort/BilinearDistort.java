@@ -21,11 +21,7 @@ package HaoRan.ImageFilter.Distort;
 
 import android.graphics.Color;
 import HaoRan.ImageFilter.*;
-/**
- * ‘Îµ„Ãÿ–ß
- * @author daizhj
- *
- */
+
 public class BilinearDistort implements IImageFilter{
 	
 	Image clone;

@@ -26,11 +26,7 @@ import java.util.Date;
 
 import android.util.Log;
 
-/**
- * 反色效果
- * @author daizhj
- *
- */
+
 public class ThreeDGridFilter implements IImageFilter{
 	int   _size ;
     int   _depth ;

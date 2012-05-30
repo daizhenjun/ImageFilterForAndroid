@@ -18,11 +18,7 @@
 
 package HaoRan.ImageFilter;
 
-/**
- * 反色效果
- * @author daizhj
- *
- */
+
 public class IllusionFilter implements IImageFilter{
 	
 	double _amount;

@@ -20,11 +20,7 @@ package HaoRan.ImageFilter;
 
 import HaoRan.ImageFilter.IImageFilter.Function;
 
-/**
- * ¹âÕÕĞ§¹û
- * @author daizhj
- *
- */
+
 public class LUTFilter implements IImageFilter{
 
 	

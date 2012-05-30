@@ -20,11 +20,7 @@ package HaoRan.ImageFilter.Distort;
 
 import HaoRan.ImageFilter.IImageFilter;
 
-/**
- * ‘Îµ„Ãÿ–ß
- * @author daizhj
- *
- */
+
 public class RippleFilter extends BilinearDistort{
 	int _waveLength ;
     int _amplitude ;

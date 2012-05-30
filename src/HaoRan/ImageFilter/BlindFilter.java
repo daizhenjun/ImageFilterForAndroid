@@ -18,11 +18,7 @@
 
 package HaoRan.ImageFilter;
 
-/**
- * 积木效果，（用于处理人像）
- * @author daizhj
- *
- */
+
 public class BlindFilter implements IImageFilter{
 
 	boolean _direct;//horizontal: true,  vertical: false

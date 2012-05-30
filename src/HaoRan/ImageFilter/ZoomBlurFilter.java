@@ -26,11 +26,7 @@ import java.util.Date;
 
 import android.util.Log;
 
-/**
- * 反色效果
- * @author daizhj
- *
- */
+
 public class ZoomBlurFilter implements IImageFilter{
 	int m_length;
     double m_offset_x;

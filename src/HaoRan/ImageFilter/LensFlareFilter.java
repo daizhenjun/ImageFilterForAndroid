@@ -29,11 +29,7 @@ import HaoRan.ImageFilter.RadialDistortionFilter.Point;
 import android.graphics.Color;
 import android.util.Log;
 
-/**
- * Âþ»­Ð§¹û
- * @author daizhj
- *
- */
+
 public class LensFlareFilter implements IImageFilter{
 
 	class FloatRGB

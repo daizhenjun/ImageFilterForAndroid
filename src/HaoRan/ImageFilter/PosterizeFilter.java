@@ -20,11 +20,7 @@ package HaoRan.ImageFilter;
 
 import HaoRan.ImageFilter.IImageFilter.Function;
 
-/**
- * ¹âÕÕÐ§¹û
- * @author daizhj
- *
- */
+
 public class PosterizeFilter extends LUTFilter{
 
 	int   _level ;

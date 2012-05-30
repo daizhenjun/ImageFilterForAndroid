@@ -18,17 +18,13 @@
 
 package HaoRan.ImageFilter;
 
-/**
- * 积木效果，（用于处理人像）
- * @author daizhj
- *
- */
+
 public class ShiftFilter implements IImageFilter{
 
 	int   _amount ; // max shift pixel
 	
-	  /**
-    Constructor \n
+	/**
+    Constructor 
     amount >= 2.
 	*/
 	public ShiftFilter(int amount)

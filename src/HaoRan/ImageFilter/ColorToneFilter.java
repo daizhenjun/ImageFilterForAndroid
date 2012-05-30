@@ -28,11 +28,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.util.Log;
 
-/**
- * 反色效果
- * @author daizhj
- *
- */
+
 public class ColorToneFilter implements IImageFilter{
 	double   _hue ;
     double   _saturation ;

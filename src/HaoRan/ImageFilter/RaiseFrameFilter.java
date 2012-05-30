@@ -20,11 +20,7 @@ package HaoRan.ImageFilter;
 
 import android.graphics.Color;
 
-/**
- * 积木效果，（用于处理人像）
- * @author daizhj
- *
- */
+
 public class RaiseFrameFilter implements IImageFilter{
 
 	int   _size ;

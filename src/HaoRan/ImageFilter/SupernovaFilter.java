@@ -28,11 +28,7 @@ import java.util.Date;
 import HaoRan.ImageFilter.RadialDistortionFilter.Point;
 import android.util.Log;
 
-/**
- * 反色效果
- * @author daizhj
- *
- */
+
 public class SupernovaFilter implements IImageFilter{
 	
 	Point    _pt ;

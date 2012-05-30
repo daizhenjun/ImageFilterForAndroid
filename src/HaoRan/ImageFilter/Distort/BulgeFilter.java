@@ -19,11 +19,7 @@
 package HaoRan.ImageFilter.Distort;
 
 
-/**
- * ‘Îµ„Ãÿ–ß
- * @author daizhj
- *
- */
+
 public class BulgeFilter extends BilinearDistort{
 	double   _amount ;
     double   _offsetX ;
