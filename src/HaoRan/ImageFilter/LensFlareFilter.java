@@ -41,28 +41,33 @@ public class LensFlareFilter implements IImageFilter{
         double  r ;
         double  g ;
         double  b ;
-    };
+    }
+	
     class Reflect
     {
-        FloatRGB ccol ;
-        double   size ;
-        int      xp ;
-        int      yp ;
-        int      type ;
-    };
+    	FloatRGB ccol = new FloatRGB() ;
+    	double   size ;
+    	int      xp ;
+    	int      yp ;
+    	int      type ;
+    }
 
-	Point    _point ;
-    Reflect[]  _reflect = new Reflect[19] ;
-    int      _numref ;
-    double   _scolor, _sglow, _sinner, _souter, _shalo ;
-    FloatRGB _color, _glow, _inner, _outer, _halo ;
+	Point      _point ;
+    Reflect[]  _reflect = new Reflect[19];
+    int        _numref ;
+    double     _scolor, _sglow, _sinner, _souter, _shalo ;
+    FloatRGB   _color = new FloatRGB() ;
+    FloatRGB   _glow = new FloatRGB() ;
+    FloatRGB   _inner = new FloatRGB();
+    FloatRGB   _outer = new FloatRGB();
+    FloatRGB   _halo = new FloatRGB() ;
 
      public LensFlareFilter(Point point){
     	 _point = point;
      }
      
      public LensFlareFilter(){
-    	 this(new Point(0.0f, 0.0f));
+    	 _point = new Point(0.0f, 0.0f);
      }
 
      void initref (int sx, int sy, int width, int height, int matt)
@@ -72,61 +77,61 @@ public class LensFlareFilter implements IImageFilter{
  		 int dx = xh - sx;
  		 int dy = yh - sy ;
          _numref = 19 ;
-         _reflect[0].type=1; _reflect[0].size=matt*0.027;
+         _reflect[0] = new Reflect(); _reflect[0].type=1; _reflect[0].size=matt*0.027;
          _reflect[0].xp=(int)(0.6699*dx+xh); _reflect[0].yp=(int)(0.6699*dy+yh);
          _reflect[0].ccol.r=0.0; _reflect[0].ccol.g=14.0/255.0; _reflect[0].ccol.b=113.0/255.0;
-         _reflect[1].type=1; _reflect[1].size=matt*0.01;
+         _reflect[1] = new Reflect(); _reflect[1].type=1; _reflect[1].size=matt*0.01;
          _reflect[1].xp=(int)(0.2692*dx+xh); _reflect[1].yp=(int)(0.2692*dy+yh);
          _reflect[1].ccol.r=90.0/255.0; _reflect[1].ccol.g=181.0/255.0; _reflect[1].ccol.b=142.0/255.0;
-         _reflect[2].type=1; _reflect[2].size=matt*0.005;
+         _reflect[2] = new Reflect();_reflect[2].type=1; _reflect[2].size=matt*0.005;
          _reflect[2].xp=(int)(-0.0112*dx+xh); _reflect[2].yp=(int)(-0.0112*dy+yh);
          _reflect[2].ccol.r=56.0/255.0; _reflect[2].ccol.g=140.0/255.0; _reflect[2].ccol.b=106.0/255.0;
-         _reflect[3].type=2; _reflect[3].size=matt*0.031;
+         _reflect[3] = new Reflect(); _reflect[3].type=2; _reflect[3].size=matt*0.031;
          _reflect[3].xp=(int)(0.6490*dx+xh); _reflect[3].yp=(int)(0.6490*dy+yh);
          _reflect[3].ccol.r=9.0/255.0; _reflect[3].ccol.g=29.0/255.0; _reflect[3].ccol.b=19.0/255.0;
-         _reflect[4].type=2; _reflect[4].size=matt*0.015;
+         _reflect[4] = new Reflect();_reflect[4].type=2; _reflect[4].size=matt*0.015;
          _reflect[4].xp=(int)(0.4696*dx+xh); _reflect[4].yp=(int)(0.4696*dy+yh);
          _reflect[4].ccol.r=24.0/255.0; _reflect[4].ccol.g=14.0/255.0; _reflect[4].ccol.b=0.0;
-         _reflect[5].type=2; _reflect[5].size=matt*0.037;
+         _reflect[5] = new Reflect();_reflect[5].type=2; _reflect[5].size=matt*0.037;
          _reflect[5].xp=(int)(0.4087*dx+xh); _reflect[5].yp=(int)(0.4087*dy+yh);
          _reflect[5].ccol.r=24.0/255.0; _reflect[5].ccol.g=14.0/255.0; _reflect[5].ccol.b=0.0;
-         _reflect[6].type=2; _reflect[6].size=matt*0.022;
+         _reflect[6] = new Reflect();_reflect[6].type=2; _reflect[6].size=matt*0.022;
          _reflect[6].xp=(int)(-0.2003*dx+xh); _reflect[6].yp=(int)(-0.2003*dy+yh);
          _reflect[6].ccol.r=42.0/255.0; _reflect[6].ccol.g=19.0/255.0; _reflect[6].ccol.b=0.0;
-         _reflect[7].type=2; _reflect[7].size=matt*0.025;
+         _reflect[7] = new Reflect();_reflect[7].type=2; _reflect[7].size=matt*0.025;
          _reflect[7].xp=(int)(-0.4103*dx+xh); _reflect[7].yp=(int)(-0.4103*dy+yh);
          _reflect[7].ccol.b=17.0/255.0; _reflect[7].ccol.g=9.0/255.0; _reflect[7].ccol.r=0.0;
-         _reflect[8].type=2; _reflect[8].size=matt*0.058;
+         _reflect[8] = new Reflect();_reflect[8].type=2; _reflect[8].size=matt*0.058;
          _reflect[8].xp=(int)(-0.4503*dx+xh); _reflect[8].yp=(int)(-0.4503*dy+yh);
          _reflect[8].ccol.b=10.0/255.0; _reflect[8].ccol.g=4.0/255.0; _reflect[8].ccol.r=0.0;
-         _reflect[9].type=2; _reflect[9].size=matt*0.017;
+         _reflect[9] = new Reflect(); _reflect[9].type=2; _reflect[9].size=matt*0.017;
          _reflect[9].xp=(int)(-0.5112*dx+xh); _reflect[9].yp=(int)(-0.5112*dy+yh);
          _reflect[9].ccol.r=5.0/255.0; _reflect[9].ccol.g=5.0/255.0; _reflect[9].ccol.b=14.0/255.0;
-         _reflect[10].type=2; _reflect[10].size=matt*0.2;
+         _reflect[10] = new Reflect();_reflect[10].type=2; _reflect[10].size=matt*0.2;
          _reflect[10].xp=(int)(-1.496*dx+xh); _reflect[10].yp=(int)(-1.496*dy+yh);
          _reflect[10].ccol.r=9.0/255.0; _reflect[10].ccol.g=4.0/255.0; _reflect[10].ccol.b=0.0;
-         _reflect[11].type=2; _reflect[11].size=matt*0.5;
+         _reflect[11] = new Reflect();_reflect[11].type=2; _reflect[11].size=matt*0.5;
          _reflect[11].xp=(int)(-1.496*dx+xh); _reflect[11].yp=(int)(-1.496*dy+yh);
          _reflect[11].ccol.r=9.0/255.0; _reflect[11].ccol.g=4.0/255.0; _reflect[11].ccol.b=0.0;
-         _reflect[12].type=3; _reflect[12].size=matt*0.075;
+         _reflect[12] = new Reflect(); _reflect[12].type=3; _reflect[12].size=matt*0.075;
          _reflect[12].xp=(int)(0.4487*dx+xh); _reflect[12].yp=(int)(0.4487*dy+yh);
          _reflect[12].ccol.r=34.0/255.0; _reflect[12].ccol.g=19.0/255.0; _reflect[12].ccol.b=0.0;
-         _reflect[13].type=3; _reflect[13].size=matt*0.1;
+         _reflect[13] = new Reflect();_reflect[13].type=3; _reflect[13].size=matt*0.1;
          _reflect[13].xp=(int)(dx+xh); _reflect[13].yp=(int)(dy+yh);
          _reflect[13].ccol.r=14.0/255.0; _reflect[13].ccol.g=26.0/255.0; _reflect[13].ccol.b=0.0;
-         _reflect[14].type=3; _reflect[14].size=matt*0.039;
+         _reflect[14] = new Reflect();_reflect[14].type=3; _reflect[14].size=matt*0.039;
          _reflect[14].xp=(int)(-1.301*dx+xh); _reflect[14].yp=(int)(-1.301*dy+yh);
          _reflect[14].ccol.r=10.0/255.0; _reflect[14].ccol.g=25.0/255.0; _reflect[14].ccol.b=13.0/255.0;
-         _reflect[15].type=4; _reflect[15].size=matt*0.19;
+         _reflect[15] = new Reflect(); _reflect[15].type=4; _reflect[15].size=matt*0.19;
          _reflect[15].xp=(int)(1.309*dx+xh); _reflect[15].yp=(int)(1.309*dy+yh);
          _reflect[15].ccol.r=9.0/255.0; _reflect[15].ccol.g=0.0; _reflect[15].ccol.b=17.0/255.0;
-         _reflect[16].type=4; _reflect[16].size=matt*0.195;
+         _reflect[16] = new Reflect();_reflect[16].type=4; _reflect[16].size=matt*0.195;
          _reflect[16].xp=(int)(1.309*dx+xh); _reflect[16].yp=(int)(1.309*dy+yh);
          _reflect[16].ccol.r=9.0/255.0; _reflect[16].ccol.g=16.0/255.0; _reflect[16].ccol.b=5.0/255.0;
-         _reflect[17].type=4; _reflect[17].size=matt*0.20;
+         _reflect[17] = new Reflect();_reflect[17].type=4; _reflect[17].size=matt*0.20;
          _reflect[17].xp=(int)(1.309*dx+xh); _reflect[17].yp=(int)(1.309*dy+yh);
          _reflect[17].ccol.r=17.0/255.0; _reflect[17].ccol.g=4.0/255.0; _reflect[17].ccol.b=0.0;
-         _reflect[18].type=4; _reflect[18].size=matt*0.038;
+         _reflect[18] = new Reflect();_reflect[18].type=4; _reflect[18].size=matt*0.038;
          _reflect[18].xp=(int)(-1.301*dx+xh); _reflect[18].yp=(int)(-1.301*dy+yh);
          _reflect[18].ccol.r=17.0/255.0; _reflect[18].ccol.g=4.0/255.0; _reflect[18].ccol.b=0.0;
      }
@@ -238,13 +243,15 @@ public class LensFlareFilter implements IImageFilter{
  		return color;
      }
      
-     public Image process(Image imageIn)
+     public Image process(Image imageIn) 
      {
-    	 if((_point.X + _point.Y) <= 0){
- 			_point.X = imageIn.getWidth() /2;
- 			_point.Y = imageIn.getHeight() /2;
+    	int matt = imageIn.getWidth();
+  		int width = matt;
+  		int height = imageIn.getHeight();
+    	if((_point.X + _point.Y) <= 0){
+ 			_point.X = width /2;
+ 			_point.Y = height /2;
  		}
- 		int matt = imageIn.getWidth();
          _scolor = matt * 0.0375;
          _sglow  = matt * 0.078125;
          _sinner = matt * 0.1796875;
@@ -257,9 +264,9 @@ public class LensFlareFilter implements IImageFilter{
          _outer.r = 69.0/255.0;  _outer.g = 59.0/255.0;  _outer.b = 64.0/255.0;
          _halo.r  = 80.0/255.0;  _halo.g  = 15.0/255.0;  _halo.b  = 4.0/255.0;
 
-         initref ((int)_point.X, (int)_point.Y, imageIn.getWidth(), imageIn.getHeight(), matt) ;
- 		 for(int x = 0 ; x < (imageIn.getWidth() - 1) ; x++){
- 			  for(int y = 0 ; y < (imageIn.getHeight() - 1) ; y++){
+         initref ((int)_point.X, (int)_point.Y, width, imageIn.getHeight(), matt) ;
+ 		 for(int x = 0 ; x < width; x++){
+ 			  for(int y = 0 ; y < height ; y++){
  				    double   hyp = FHypot (x-_point.X, y-_point.Y) ;
  					int color = imageIn.getPixelColor(x, y);
  					color = mcolor (color, hyp); /* make color */
@@ -272,10 +279,10 @@ public class LensFlareFilter implements IImageFilter{
  					{
  						switch (_reflect[i].type)
  						{
- 							case 1 : color = mrt1 (color, _reflect[i], x, y); break;
- 							case 2 : color = mrt2 (color, _reflect[i], x, y); break;
- 							case 3 : color = mrt3 (color, _reflect[i], x, y); break;
- 							case 4 : color = mrt4 (color, _reflect[i], x, y); break;
+ 							case 1 : {color = mrt1 (color, _reflect[i], x, y); break;}
+ 							case 2 : {color = mrt2 (color, _reflect[i], x, y); break;}
+ 							case 3 : {color = mrt3 (color, _reflect[i], x, y); break;}
+ 							case 4 : {color = mrt4 (color, _reflect[i], x, y); break;}
  						}
  					}
  					imageIn.setPixelColor(x, y, color);

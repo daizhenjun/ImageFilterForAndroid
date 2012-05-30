@@ -144,10 +144,10 @@ public class ImageFilterMain extends Activity {
 //			filterArray.add(new FilterInfo(R.drawable.invert_filter, new BlindFilter(false, 96, 100, 0x000000)));
 //			filterArray.add(new FilterInfo(R.drawable.invert_filter, new RaiseFrameFilter(20)));
 //			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ShiftFilter(10)));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new WaveFilter(25, 10)));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new BulgeFilter(-97)));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new TwistFilter(27, 106)));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new RippleFilter(38, 15, true)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new WaveFilter(25, 10)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new BulgeFilter(-97)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new TwistFilter(27, 106)));
+//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new RippleFilter(38, 15, true)));
 //			filterArray.add(new FilterInfo(R.drawable.invert_filter, new IllusionFilter(3)));
 //			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SupernovaFilter(0x00FFFF,20,100)));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new LensFlareFilter()));
@@ -165,7 +165,7 @@ public class ImageFilterMain extends Activity {
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new FilmFilter(80f)));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new FocusFilter()));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new CleanGlassFilter()));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FF00)));//greengreen
+			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FF00)));//green
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0x00FFFF)));//yellow
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PaintBorderFilter(0xFF0000)));//blue
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new LomoFilter()));
