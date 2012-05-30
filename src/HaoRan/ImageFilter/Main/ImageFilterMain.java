@@ -131,32 +131,33 @@ public class ImageFilterMain extends Activity {
 
 		public ImageFilterAdapter(Context c) {
 			mContext = c;
+			//加载滤镜列表
+			
 			//v0.3
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ZoomBlurFilter(30)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ThreeDGridFilter(16, 100)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ColorToneFilter(Color.rgb(33, 168, 254), 192)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ColorToneFilter(0x00FF00, 192)));//green
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ColorToneFilter(0xFF0000, 192)));//blue
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ColorToneFilter(0x00FFFF, 192)));//yellow
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SoftGlowFilter(10, 0.1f, 0.1f)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new TileReflectionFilter(20, 8)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new BlindFilter(true, 96, 100, 0xffffff)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new BlindFilter(false, 96, 100, 0x000000)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new RaiseFrameFilter(20)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ShiftFilter(10)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new WaveFilter(25, 10)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new BulgeFilter(-97)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new TwistFilter(27, 106)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new RippleFilter(38, 15, true)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new IllusionFilter(3)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SupernovaFilter(0x00FFFF,20,100)));
-			filterArray.add(new FilterInfo(R.drawable.invert_filter, new LensFlareFilter()));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new PosterizeFilter(2)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new GammaFilter(50)));
-//			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SharpFilter()));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new ZoomBlurFilter(30)));
+			filterArray.add(new FilterInfo(R.drawable.threedgrid_filter, new ThreeDGridFilter(16, 100)));
+			filterArray.add(new FilterInfo(R.drawable.colortone_filter, new ColorToneFilter(Color.rgb(33, 168, 254), 192)));
+			filterArray.add(new FilterInfo(R.drawable.colortone_filter2, new ColorToneFilter(0x00FF00, 192)));//green
+			filterArray.add(new FilterInfo(R.drawable.colortone_filter3, new ColorToneFilter(0xFF0000, 192)));//blue
+			filterArray.add(new FilterInfo(R.drawable.colortone_filter4, new ColorToneFilter(0x00FFFF, 192)));//yellow
+			filterArray.add(new FilterInfo(R.drawable.softglow_filter, new SoftGlowFilter(10, 0.1f, 0.1f)));
+			filterArray.add(new FilterInfo(R.drawable.tilereflection_filter, new TileReflectionFilter(20, 8)));
+			filterArray.add(new FilterInfo(R.drawable.blind_filter1, new BlindFilter(true, 96, 100, 0xffffff)));
+			filterArray.add(new FilterInfo(R.drawable.blind_filter2, new BlindFilter(false, 96, 100, 0x000000)));
+			filterArray.add(new FilterInfo(R.drawable.raiseframe_filter, new RaiseFrameFilter(20)));
+			filterArray.add(new FilterInfo(R.drawable.shift_filter, new ShiftFilter(10)));
+			filterArray.add(new FilterInfo(R.drawable.wave_filter, new WaveFilter(25, 10)));
+			filterArray.add(new FilterInfo(R.drawable.bulge_filter, new BulgeFilter(-97)));
+			filterArray.add(new FilterInfo(R.drawable.twist_filter, new TwistFilter(27, 106)));
+			filterArray.add(new FilterInfo(R.drawable.ripple_filter, new RippleFilter(38, 15, true)));
+			filterArray.add(new FilterInfo(R.drawable.illusion_filter, new IllusionFilter(3)));
+			filterArray.add(new FilterInfo(R.drawable.supernova_filter, new SupernovaFilter(0x00FFFF,20,100)));
+			filterArray.add(new FilterInfo(R.drawable.lensflare_filter, new LensFlareFilter()));
+			filterArray.add(new FilterInfo(R.drawable.posterize_filter, new PosterizeFilter(2)));
+			filterArray.add(new FilterInfo(R.drawable.gamma_filter, new GammaFilter(50)));
+			filterArray.add(new FilterInfo(R.drawable.sharp_filter, new SharpFilter()));
 			
 			//v0.2
-			// 加载滤镜列表
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new ComicFilter()));
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SceneFilter(5f, Gradient.Scene())));//green
 			filterArray.add(new FilterInfo(R.drawable.invert_filter, new SceneFilter(5f, Gradient.Scene1())));//purple
