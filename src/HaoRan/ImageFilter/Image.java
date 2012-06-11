@@ -19,271 +19,253 @@
 package HaoRan.ImageFilter;
 
 import java.nio.IntBuffer;
+
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
-import android.graphics.Matrix;
 
 /**
  * 
  * @author daizhj
- *
+ * 
  */
 public class Image {
-        
-    //original bitmap image
-    public Bitmap image;
-    public Bitmap destImage;
-    
-    //format of image (jpg/png)
-    private String formatName;
-    //dimensions of image
-    private int width, height;
-    // RGB Array Color
-    protected int[] colorArray;
-    
-    public Image(Bitmap img){                
-        this.image =  img;
-        formatName = "jpg";
-        width = img.getWidth();
-        height = img.getHeight();
-        destImage = Bitmap.createBitmap(width, height, Config.ARGB_8888);
 
-        updateColorArray();
-    }
-    
-    public Image clone(){
-    	return new Image(this.image);
-    }
-    
-    /**
-     * Method to reset the image to a solid color
-     * @param color - color to rest the entire image to
-     */
-    public void clearImage(int color){
-    	for(int y=0; y<height; y++){
-            for(int x=0; x<width; x++){
-            	setPixelColor(x, y, color);
-            }
-        }
-    }
-    
-    
-    /**
-     * Set color array for image - called on initialisation
-     * by constructor
-     * 
-     * @param bitmap
-     */
-    private void updateColorArray(){
-        colorArray = new int[width * height];
-        image.getPixels(colorArray, 0, width, 0, 0, width, height);
-        int r, g, b;
-        for (int y = 0; y < height; y++){
-            for (int x = 0; x < width; x++){
-                int index = y * width + x;
-                r = (colorArray[index] >> 16) & 0xff;
-                g = (colorArray[index] >> 8) & 0xff;
-                b = colorArray[index] & 0xff;
-                colorArray[index] = 0xff000000 | (b << 16) | (g << 8) | r;//android系统与window系统的rgb存储方式相反
-            }
-        }               
-    }
-    
-    
-    /**
-     * Method to set the color of a specific pixel
-     * 
-     * @param x
-     * @param y
-     * @param color
-     */
-    public void setPixelColor(int x, int y, int color){
-        colorArray[((y*image.getWidth()+x))] = color;
-        //image.setPixel(x, y, color);
-        //destImage.setPixel(x, y, colorArray[((y*image.getWidth()+x))]);
-    }
-    
-    /**
-     * Get the color for a specified pixel
-     * 
-     * @param x
-     * @param y
-     * @return color
-     */
-    public int getPixelColor(int x, int y){
-        return colorArray[y*width+x];
-    }
-    
-    /**
-     * Set the color of a specified pixel from an RGB combo
-     * 
-     * @param x
-     * @param y
-     * @param c0
-     * @param c1
-     * @param c2
-     */
-    public void setPixelColor(int x, int y, int c0, int c1, int c2){
-	    int rgbcolor = (255 << 24) + (c0 << 16) + (c1 << 8) + c2;
-        colorArray[((y*image.getWidth()+x))] = rgbcolor;
-        //int array = ((y*image.getWidth()+x));
-        
-        //vbb.order(ByteOrder.nativeOrder());
-        //vertexBuffer = vbb.asFloatBuffer();
-        //vertexBuffer.put(vertices);
-        //vertexBuffer.position(0);
-       
-        //image.setPixel(x, y, colorArray[((y*image.getWidth()+x))]);
-    }
-    
-    public void copyPixelsFromBuffer() { //从缓冲区中copy数据以加快像素处理速度          	
-    	IntBuffer vbb = IntBuffer.wrap(colorArray);    	
-        //vbb.put(colorArray);
-        destImage.copyPixelsFromBuffer(vbb);
-        vbb.clear();
-        //vbb = null;
-    }
-    
-    /**
-     * Method to get the RED color for the specified 
-     * pixel 
-     * @param x
-     * @param y
-     * @return color of R
-     */
-    public int getRComponent(int x, int y){
-         return (getColorArray()[((y*width+x))]& 0x00FF0000) >>> 16;
-    }
+	// format of image (jpg/png)
+	private String formatName;
+	// dimensions of image
+	private int width, height;
+	// RGB Array Color
+	protected int[] colorArray;
 
-    
-    /**
-     * Method to get the GREEN color for the specified 
-     * pixel 
-     * @param x
-     * @param y
-     * @return color of G
-     */
-    public int getGComponent(int x, int y){
-         return (getColorArray()[((y*width+x))]& 0x0000FF00) >>> 8;
-    }
+	public Image(Bitmap img) {
+		formatName = "jpg";
+		updateColorArray(img);
+	}
 
+	public Image(int[] colorArray, int width, int height) {
+		this.colorArray = new int[colorArray.length];
+		System.arraycopy(colorArray, 0, this.colorArray, 0, colorArray.length);
+		this.width = width;
+		this.height = height;
+		formatName = "jpg";
+	}
 
-    /**
-     * Method to get the BLUE color for the specified 
-     * pixel 
-     * @param x
-     * @param y
-     * @return color of B
-     */
-    public int getBComponent(int x, int y){
-         return (getColorArray()[((y*width+x))] & 0x000000FF);
-    }
+	public Image clone() {
+		return new Image(this.colorArray, this.width, this.height);
+	}
 
-    
-    
-    /**
-     * Method to rotate an image by the specified number of degrees
-     * 
-     * @param rotateDegrees
-     */
-    public void rotate (int rotateDegrees){
-        Matrix mtx = new Matrix();
-        mtx.postRotate(rotateDegrees);
-        image = Bitmap.createBitmap(image, 0, 0, width, height, mtx, true);
-        width = image.getWidth();
-        height = image.getHeight();
-        updateColorArray();
-    }
-    
+	/**
+	 * Method to reset the image to a solid color
+	 * 
+	 * @param color
+	 *            - color to rest the entire image to
+	 */
+	public void clearImage(int color) {
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				setPixelColor(x, y, color);
+			}
+		}
+	}
 
-    /**
-     * @return the image
-     */
-    public Bitmap getImage() {
-        //return image;
-    	return destImage;
-    }
+	/**
+	 * Set color array for image - called on initialisation by constructor
+	 * 
+	 * @param bitmap
+	 */
+	private void updateColorArray(Bitmap image) {
+		width = image.getWidth();
+		height = image.getHeight();
+		colorArray = new int[width * height];
+		image.getPixels(colorArray, 0, width, 0, 0, width, height);
+		int r, g, b;
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				int index = y * width + x;
+				r = (colorArray[index] >> 16) & 0xff;
+				g = (colorArray[index] >> 8) & 0xff;
+				b = colorArray[index] & 0xff;
+				colorArray[index] = 0xff000000 | (b << 16) | (g << 8) | r;// android系统与window系统的rgb存储方式相反
+			}
+		}
+		image.recycle();
+	}
 
+	/**
+	 * Method to set the color of a specific pixel
+	 * 
+	 * @param x
+	 * @param y
+	 * @param color
+	 */
+	public void setPixelColor(int x, int y, int color) {
+		colorArray[((y * width + x))] = color;
+		// image.setPixel(x, y, color);
+		// destImage.setPixel(x, y, colorArray[((y*image.getWidth()+x))]);
+	}
 
-    /**
-     * @param image the image to set
-     */
-    public void setImage(Bitmap image) {
-        this.image = image;
-    }
+	/**
+	 * Get the color for a specified pixel
+	 * 
+	 * @param x
+	 * @param y
+	 * @return color
+	 */
+	public int getPixelColor(int x, int y) {
+		return colorArray[y * width + x];
+	}
 
+	/**
+	 * Set the color of a specified pixel from an RGB combo
+	 * 
+	 * @param x
+	 * @param y
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 */
+	public void setPixelColor(int x, int y, int c0, int c1, int c2) {
+		int rgbcolor = (255 << 24) + (c0 << 16) + (c1 << 8) + c2;
+		colorArray[((y * width + x))] = rgbcolor;
+		// int array = ((y*image.getWidth()+x));
 
-    /**
-     * @return the formatName
-     */
-    public String getFormatName() {
-        return formatName;
-    }
+		// vbb.order(ByteOrder.nativeOrder());
+		// vertexBuffer = vbb.asFloatBuffer();
+		// vertexBuffer.put(vertices);
+		// vertexBuffer.position(0);
 
+		// image.setPixel(x, y, colorArray[((y*image.getWidth()+x))]);
+	}
 
-    /**
-     * @param formatName the formatName to set
-     */
-    public void setFormatName(String formatName) {
-        this.formatName = formatName;
-    }
+	private Bitmap copyPixelsFromBuffer() { // 从缓冲区中copy数据以加快像素处理速度
+		IntBuffer vbb = IntBuffer.wrap(colorArray);
+		Bitmap destImage = Bitmap.createBitmap(width, height, Config.ARGB_8888);
+		destImage.copyPixelsFromBuffer(vbb);
+		vbb.clear();
+		return destImage;
+	}
 
+	/**
+	 * Method to get the RED color for the specified pixel
+	 * 
+	 * @param x
+	 * @param y
+	 * @return color of R
+	 */
+	public int getRComponent(int x, int y) {
+		return (getColorArray()[((y * width + x))] & 0x00FF0000) >>> 16;
+	}
 
-    /**
-     * @return the width
-     */
-    public int getWidth() {
-        return width;
-    }
+	/**
+	 * Method to get the GREEN color for the specified pixel
+	 * 
+	 * @param x
+	 * @param y
+	 * @return color of G
+	 */
+	public int getGComponent(int x, int y) {
+		return (getColorArray()[((y * width + x))] & 0x0000FF00) >>> 8;
+	}
 
+	/**
+	 * Method to get the BLUE color for the specified pixel
+	 * 
+	 * @param x
+	 * @param y
+	 * @return color of B
+	 */
+	public int getBComponent(int x, int y) {
+		return (getColorArray()[((y * width + x))] & 0x000000FF);
+	}
 
-    /**
-     * @param width the width to set
-     */
-    public void setWidth(int width) {
-        this.width = width;
-    }
+	/**
+	 * Method to rotate an image by the specified number of degrees
+	 * 
+	 * @param rotateDegrees
+	 */
+	// public void rotate (int rotateDegrees){
+	// Matrix mtx = new Matrix();
+	// mtx.postRotate(rotateDegrees);
+	// image = Bitmap.createBitmap(image, 0, 0, width, height, mtx, true);
+	// width = image.getWidth();
+	// height = image.getHeight();
+	// updateColorArray();
+	// }
 
+	/**
+	 * @return the image
+	 */
+	public Bitmap getImage() {
+		return copyPixelsFromBuffer();
+	}
 
-    /**
-     * @return the height
-     */
-    public int getHeight() {
-        return height;
-    }
+	/**
+	 * @return the formatName
+	 */
+	public String getFormatName() {
+		return formatName;
+	}
 
+	/**
+	 * @param formatName
+	 *            the formatName to set
+	 */
+	public void setFormatName(String formatName) {
+		this.formatName = formatName;
+	}
 
-    /**
-     * @param height the height to set
-     */
-    public void setHeight(int height) {
-        this.height = height;
-    }
+	/**
+	 * @return the width
+	 */
+	public int getWidth() {
+		return width;
+	}
 
+	/**
+	 * @param width
+	 *            the width to set
+	 */
+	public void setWidth(int width) {
+		this.width = width;
+	}
 
-    /**
-     * @return the colorArray
-     */
-    public int[] getColorArray() {
-        return colorArray;
-    }
+	/**
+	 * @return the height
+	 */
+	public int getHeight() {
+		return height;
+	}
 
+	/**
+	 * @param height
+	 *            the height to set
+	 */
+	public void setHeight(int height) {
+		this.height = height;
+	}
 
-    /**
-     * @param colorArray the colorArray to set
-     */
-    public void setColorArray(int[] colorArray) {
-        this.colorArray = colorArray;
-    }
+	/**
+	 * @return the colorArray
+	 */
+	public int[] getColorArray() {
+		return colorArray;
+	}
 
-    
-    public static int SAFECOLOR(int a) {
-        if (a < 0)
-            return 0;
-        else if (a > 255)
-            return 255;
-        else
-            return a;
-    }
+	/**
+	 * @param colorArray
+	 *            the colorArray to set
+	 */
+	public void setColorArray(int[] colorArray) {
+		this.colorArray = colorArray;
+	}
+
+	public static int SAFECOLOR(int a) {
+		if (a < 0)
+			return 0;
+		else if (a > 255)
+			return 255;
+		else
+			return a;
+	}
 
 }

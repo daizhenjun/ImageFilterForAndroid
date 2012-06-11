@@ -3,19 +3,78 @@ package HaoRan.ImageFilter.Main;
 import java.util.ArrayList;
 import java.util.List;
 
-import HaoRan.ImageFilter.*;
-import HaoRan.ImageFilter.RadialDistortionFilter.Point;
-import HaoRan.ImageFilter.Distort.*;
-
+import HaoRan.ImageFilter.AutoAdjustFilter;
+import HaoRan.ImageFilter.BannerFilter;
+import HaoRan.ImageFilter.BigBrotherFilter;
+import HaoRan.ImageFilter.BlackWhiteFilter;
+import HaoRan.ImageFilter.BlindFilter;
+import HaoRan.ImageFilter.BlockPrintFilter;
+import HaoRan.ImageFilter.BrickFilter;
+import HaoRan.ImageFilter.BrightContrastFilter;
+import HaoRan.ImageFilter.CleanGlassFilter;
+import HaoRan.ImageFilter.ColorQuantizeFilter;
+import HaoRan.ImageFilter.ColorToneFilter;
+import HaoRan.ImageFilter.ComicFilter;
+import HaoRan.ImageFilter.EdgeFilter;
+import HaoRan.ImageFilter.FeatherFilter;
+import HaoRan.ImageFilter.FilmFilter;
+import HaoRan.ImageFilter.FocusFilter;
+import HaoRan.ImageFilter.GammaFilter;
+import HaoRan.ImageFilter.GaussianBlurFilter;
+import HaoRan.ImageFilter.Gradient;
+import HaoRan.ImageFilter.IImageFilter;
+import HaoRan.ImageFilter.IllusionFilter;
+import HaoRan.ImageFilter.Image;
+import HaoRan.ImageFilter.InvertFilter;
+import HaoRan.ImageFilter.LensFlareFilter;
+import HaoRan.ImageFilter.LightFilter;
+import HaoRan.ImageFilter.LomoFilter;
+import HaoRan.ImageFilter.MistFilter;
+import HaoRan.ImageFilter.MonitorFilter;
+import HaoRan.ImageFilter.MosaicFilter;
+import HaoRan.ImageFilter.NeonFilter;
+import HaoRan.ImageFilter.NightVisionFilter;
+import HaoRan.ImageFilter.NoiseFilter;
+import HaoRan.ImageFilter.OilPaintFilter;
+import HaoRan.ImageFilter.OldPhotoFilter;
+import HaoRan.ImageFilter.PaintBorderFilter;
+import HaoRan.ImageFilter.PixelateFilter;
+import HaoRan.ImageFilter.PosterizeFilter;
+import HaoRan.ImageFilter.R;
+import HaoRan.ImageFilter.RadialDistortionFilter;
+import HaoRan.ImageFilter.RainBowFilter;
+import HaoRan.ImageFilter.RaiseFrameFilter;
+import HaoRan.ImageFilter.RectMatrixFilter;
+import HaoRan.ImageFilter.ReflectionFilter;
+import HaoRan.ImageFilter.ReliefFilter;
+import HaoRan.ImageFilter.SaturationModifyFilter;
+import HaoRan.ImageFilter.SceneFilter;
+import HaoRan.ImageFilter.SepiaFilter;
+import HaoRan.ImageFilter.SharpFilter;
+import HaoRan.ImageFilter.ShiftFilter;
+import HaoRan.ImageFilter.SmashColorFilter;
+import HaoRan.ImageFilter.SoftGlowFilter;
+import HaoRan.ImageFilter.SupernovaFilter;
+import HaoRan.ImageFilter.ThreeDGridFilter;
+import HaoRan.ImageFilter.ThresholdFilter;
+import HaoRan.ImageFilter.TileReflectionFilter;
+import HaoRan.ImageFilter.TintFilter;
+import HaoRan.ImageFilter.VignetteFilter;
+import HaoRan.ImageFilter.VintageFilter;
+import HaoRan.ImageFilter.WaterWaveFilter;
+import HaoRan.ImageFilter.XRadiationFilter;
+import HaoRan.ImageFilter.ZoomBlurFilter;
+import HaoRan.ImageFilter.Distort.BulgeFilter;
+import HaoRan.ImageFilter.Distort.RippleFilter;
+import HaoRan.ImageFilter.Distort.TwistFilter;
+import HaoRan.ImageFilter.Distort.WaveFilter;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.opengl.Visibility;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -84,23 +143,10 @@ public class ImageFilterMain extends Activity {
 				img = new Image(bitmap);
 				if (filter != null) {
 					img = filter.process(img);
-					img.copyPixelsFromBuffer();
 				}
 				return img.getImage();
 	    	}
 			catch(Exception e){
-				if (img != null && img.destImage.isRecycled()) {
-					img.destImage.recycle();
-					img.destImage = null;
-					System.gc(); // 提醒系统及时回收
-				}
-			}
-			finally{
-				if (img != null && img.image.isRecycled()) {
-					img.image.recycle();
-					img.image = null;
-					System.gc(); // 提醒系统及时回收
-				}
 			}
 			return null;
 		}
