@@ -4,18 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import HaoRan.ImageFilter.*;
-import HaoRan.ImageFilter.RadialDistortionFilter.Point;
 import HaoRan.ImageFilter.Distort.*;
+import HaoRan.ImageFilter.Textures.*;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.opengl.Visibility;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -131,7 +129,40 @@ public class ImageFilterMain extends Activity {
 
 		public ImageFilterAdapter(Context c) {
 			mContext = c;
-			//加载滤镜列表
+			
+			//99种效果
+	         
+	        //v0.4 //加载滤镜列表
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_STAGGERED)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_TRIPED)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_3X3)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_DOTS)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TileReflectionFilter(20, 8, 45, (byte)1)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TileReflectionFilter(20, 8, 45, (byte)2)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new FillPatternFilter(ImageFilterMain.this, R.drawable.texture1)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new FillPatternFilter(ImageFilterMain.this, R.drawable.texture1)));
+			
+
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new MirrorFilter(true)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new MirrorFilter(false)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new YCBCrLinearFilter(new YCBCrLinearFilter.Range(-0.3f, 0.3f))));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new YCBCrLinearFilter(new YCBCrLinearFilter.Range(-0.276f, 0.163f), new YCBCrLinearFilter.Range(-0.202f, 0.5f))));
+
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new CloudsTexture(), 0.8f, 0.8f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new LabyrinthTexture(), 0.8f, 0.8f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new MarbleTexture(), 1.8f, 0.8f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new WoodTexture(), 0.8f, 0.8f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new TextileTexture(), 0.8f, 0.8f)));
+			
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(20f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(40f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(60f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(80f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(100f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(150f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(200f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(250f)));
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(300f)));
 			
 			//v0.3  目前 共提供73种效果
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new ZoomBlurFilter(30)));

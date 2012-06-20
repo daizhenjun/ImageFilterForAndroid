@@ -19,7 +19,10 @@
 package HaoRan.ImageFilter;
 
 import java.nio.IntBuffer;
+
+import android.app.Activity;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Bitmap.Config;
 import android.graphics.Matrix;
 
@@ -286,4 +289,10 @@ public class Image {
             return a;
     }
 
+    //;R.drawable.image
+    public static Image LoadImage(Activity activity,  int resourceId) 
+    {
+		Bitmap bitmap = BitmapFactory.decodeResource(activity.getResources(), resourceId);
+        return new Image(bitmap);
+    }
 }
