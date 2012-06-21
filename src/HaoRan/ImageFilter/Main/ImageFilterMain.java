@@ -132,7 +132,7 @@ public class ImageFilterMain extends Activity {
 			
 			//99种效果
 	         
-	        //v0.4 //加载滤镜列表
+	        //v0.4 
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_STAGGERED)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_TRIPED)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_3X3)));
@@ -140,20 +140,16 @@ public class ImageFilterMain extends Activity {
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TileReflectionFilter(20, 8, 45, (byte)1)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TileReflectionFilter(20, 8, 45, (byte)2)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new FillPatternFilter(ImageFilterMain.this, R.drawable.texture1)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new FillPatternFilter(ImageFilterMain.this, R.drawable.texture1)));
-			
-
+			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new FillPatternFilter(ImageFilterMain.this, R.drawable.texture2)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new MirrorFilter(true)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new MirrorFilter(false)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new YCBCrLinearFilter(new YCBCrLinearFilter.Range(-0.3f, 0.3f))));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new YCBCrLinearFilter(new YCBCrLinearFilter.Range(-0.276f, 0.163f), new YCBCrLinearFilter.Range(-0.202f, 0.5f))));
-
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new CloudsTexture(), 0.8f, 0.8f)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new LabyrinthTexture(), 0.8f, 0.8f)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new MarbleTexture(), 1.8f, 0.8f)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new WoodTexture(), 0.8f, 0.8f)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new TextileTexture(), 0.8f, 0.8f)));
-			
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(20f)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(40f)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(60f)));
@@ -164,7 +160,7 @@ public class ImageFilterMain extends Activity {
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(250f)));
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(300f)));
 			
-			//v0.3  目前 共提供73种效果
+			//v0.3  
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new ZoomBlurFilter(30)));
 			filterArray.add(new FilterInfo(R.drawable.threedgrid_filter, new ThreeDGridFilter(16, 100)));
 			filterArray.add(new FilterInfo(R.drawable.colortone_filter, new ColorToneFilter(Color.rgb(33, 168, 254), 192)));

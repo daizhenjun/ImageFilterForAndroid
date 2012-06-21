@@ -96,9 +96,9 @@ public class YCBCrLinearFilter implements IImageFilter{
         {
             for (int y = 0; y < imageIn.getHeight(); y++)
             {
-                rgb.R = (byte)imageIn.getRComponent(x, y);
-                rgb.G = (byte)imageIn.getGComponent(x, y);
-                rgb.B = (byte)imageIn.getBComponent(x, y);
+                rgb.R = imageIn.getRComponent(x, y);
+                rgb.G = imageIn.getGComponent(x, y);
+                rgb.B = imageIn.getBComponent(x, y);
 
                 // convert to YCbCr
                 ycbcr = YCbCr.FromRGB(rgb, ycbcr);
