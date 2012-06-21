@@ -133,32 +133,32 @@ public class ImageFilterMain extends Activity {
 			//99ÖÖÐ§¹û
 	         
 	        //v0.4 
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_STAGGERED)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_TRIPED)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_3X3)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_DOTS)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TileReflectionFilter(20, 8, 45, (byte)1)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TileReflectionFilter(20, 8, 45, (byte)2)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new FillPatternFilter(ImageFilterMain.this, R.drawable.texture1)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new FillPatternFilter(ImageFilterMain.this, R.drawable.texture2)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new MirrorFilter(true)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new MirrorFilter(false)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new YCBCrLinearFilter(new YCBCrLinearFilter.Range(-0.3f, 0.3f))));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new YCBCrLinearFilter(new YCBCrLinearFilter.Range(-0.276f, 0.163f), new YCBCrLinearFilter.Range(-0.202f, 0.5f))));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new CloudsTexture(), 0.8f, 0.8f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new LabyrinthTexture(), 0.8f, 0.8f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new MarbleTexture(), 1.8f, 0.8f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new WoodTexture(), 0.8f, 0.8f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new TexturerFilter(new TextileTexture(), 0.8f, 0.8f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(20f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(40f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(60f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(80f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(100f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(150f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(200f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(250f)));
-			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(300f)));
+			filterArray.add(new FilterInfo(R.drawable.video_filter1, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_STAGGERED)));
+			filterArray.add(new FilterInfo(R.drawable.video_filter2, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_TRIPED)));
+			filterArray.add(new FilterInfo(R.drawable.video_filter3, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_3X3)));
+			filterArray.add(new FilterInfo(R.drawable.video_filter4, new VideoFilter(VideoFilter.VIDEO_TYPE.VIDEO_DOTS)));
+			filterArray.add(new FilterInfo(R.drawable.tilereflection_filter1, new TileReflectionFilter(20, 8, 45, (byte)1)));
+			filterArray.add(new FilterInfo(R.drawable.tilereflection_filter2, new TileReflectionFilter(20, 8, 45, (byte)2)));
+			filterArray.add(new FilterInfo(R.drawable.fillpattern_filter, new FillPatternFilter(ImageFilterMain.this, R.drawable.texture1)));
+			filterArray.add(new FilterInfo(R.drawable.fillpattern_filter1, new FillPatternFilter(ImageFilterMain.this, R.drawable.texture2)));
+			filterArray.add(new FilterInfo(R.drawable.mirror_filter1, new MirrorFilter(true)));
+			filterArray.add(new FilterInfo(R.drawable.mirror_filter2, new MirrorFilter(false)));
+			filterArray.add(new FilterInfo(R.drawable.ycb_crlinear_filter, new YCBCrLinearFilter(new YCBCrLinearFilter.Range(-0.3f, 0.3f))));
+			filterArray.add(new FilterInfo(R.drawable.ycb_crlinear_filter2, new YCBCrLinearFilter(new YCBCrLinearFilter.Range(-0.276f, 0.163f), new YCBCrLinearFilter.Range(-0.202f, 0.5f))));
+			filterArray.add(new FilterInfo(R.drawable.texturer_filter, new TexturerFilter(new CloudsTexture(), 0.8f, 0.8f)));
+			filterArray.add(new FilterInfo(R.drawable.texturer_filter1, new TexturerFilter(new LabyrinthTexture(), 0.8f, 0.8f)));
+			filterArray.add(new FilterInfo(R.drawable.texturer_filter2, new TexturerFilter(new MarbleTexture(), 1.8f, 0.8f)));
+			filterArray.add(new FilterInfo(R.drawable.texturer_filter3, new TexturerFilter(new WoodTexture(), 0.8f, 0.8f)));
+			filterArray.add(new FilterInfo(R.drawable.texturer_filter4, new TexturerFilter(new TextileTexture(), 0.8f, 0.8f)));
+			filterArray.add(new FilterInfo(R.drawable.hslmodify_filter, new HslModifyFilter(20f)));
+			filterArray.add(new FilterInfo(R.drawable.hslmodify_filter0, new HslModifyFilter(40f)));
+			filterArray.add(new FilterInfo(R.drawable.hslmodify_filter1, new HslModifyFilter(60f)));
+			filterArray.add(new FilterInfo(R.drawable.hslmodify_filter2, new HslModifyFilter(80f)));
+			filterArray.add(new FilterInfo(R.drawable.hslmodify_filter3, new HslModifyFilter(100f)));
+			filterArray.add(new FilterInfo(R.drawable.hslmodify_filter4, new HslModifyFilter(150f)));
+			filterArray.add(new FilterInfo(R.drawable.hslmodify_filter5, new HslModifyFilter(200f)));
+			filterArray.add(new FilterInfo(R.drawable.hslmodify_filter6, new HslModifyFilter(250f)));
+			filterArray.add(new FilterInfo(R.drawable.hslmodify_filter7, new HslModifyFilter(300f)));
 			
 			//v0.3  
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new ZoomBlurFilter(30)));
