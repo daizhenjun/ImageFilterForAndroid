@@ -130,6 +130,7 @@ public class ImageFilterMain extends Activity {
 		public ImageFilterAdapter(Context c) {
 			mContext = c;
 			
+<<<<<<< HEAD
 			//99种效果
 	         
 	        //v0.4 
@@ -161,6 +162,9 @@ public class ImageFilterMain extends Activity {
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new HslModifyFilter(300f)));
 			
 			//v0.3  
+=======
+			//v0.3  目前 共提供73种效果
+>>>>>>> 827e4599ef50932e6950d2273561feb2dc1908f4
 			filterArray.add(new FilterInfo(R.drawable.zoomblur_filter, new ZoomBlurFilter(30)));
 			filterArray.add(new FilterInfo(R.drawable.threedgrid_filter, new ThreeDGridFilter(16, 100)));
 			filterArray.add(new FilterInfo(R.drawable.colortone_filter, new ColorToneFilter(Color.rgb(33, 168, 254), 192)));
